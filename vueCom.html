@@ -9,6 +9,7 @@
 	<input type="text" v-model="superPerson.name">
 	<script src="//m.daigou.com/global/js/common/vue/vue.min.js"></script>
 	<script>
+	//创建一个子组件
 	var com = Vue.extend({
 		template:'<div>{{say}}{{person.name}}</div>',
 		props:['person'],
@@ -18,6 +19,7 @@
 	});
 
 	Vue.component('my-com', com);
+	//实例化vue
 	new Vue({
 		el: '#el',
 		data:{
