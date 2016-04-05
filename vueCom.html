@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" id="el">
+<head>
+	<meta charset="UTF-8">
+	<title>vuejs组件通信小demo</title>
+</head>
+<body>
+	<my-com :person="superPerson"></my-com>
+	<input type="text" v-model="superPerson.name">
+	<script src="//m.daigou.com/global/js/common/vue/vue.min.js"></script>
+	<script>
+	var com = Vue.extend({
+		template:'<div>{{say}}{{person.name}}</div>',
+		props:['person'],
+		data:function(){
+			return {say:'这是谁呢'}
+		}
+	});
+
+	Vue.component('my-com', com);
+	new Vue({
+		el: '#el',
+		data:{
+			superPerson:{name:'lisi'}
+		}
+	});	
+	</script>
+</body>
+</html>
